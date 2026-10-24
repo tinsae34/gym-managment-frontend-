@@ -102,8 +102,8 @@ export default function MembersScreen() {
                                 key={tab.value}
                                 onClick={() => setActiveFilter(tab.value)}
                                 className={`px-4 py-2 rounded-lg font-medium transition-colors ${activeFilter === tab.value
-                                        ? 'bg-primary-600 text-white'
-                                        : 'bg-slate-700 text-slate-300 hover:bg-slate-600'
+                                    ? 'bg-primary-600 text-white'
+                                    : 'bg-slate-700 text-slate-300 hover:bg-slate-600'
                                     }`}
                             >
                                 {tab.label}
@@ -177,7 +177,7 @@ export default function MembersScreen() {
                                             <StatusBadge status={member.status} />
                                         </td>
                                         <td className="px-6 py-4 whitespace-nowrap text-slate-300">
-                                            {formatDate(member.membershipStartDate)}
+                                            {formatDate(member.startDate)}
                                         </td>
                                         <td className="px-6 py-4 whitespace-nowrap">
                                             <span

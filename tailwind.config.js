@@ -7,47 +7,31 @@ export default {
     theme: {
         extend: {
             colors: {
-                primary: {
-                    DEFAULT: '#4f46e5',
-                    50: '#eef2ff',
-                    100: '#e0e7ff',
-                    200: '#c7d2fe',
-                    300: '#a5b4fc',
-                    400: '#818cf8',
-                    500: '#6366f1',
-                    600: '#4f46e5',
-                    700: '#4338ca',
-                    800: '#3730a3',
-                    900: '#312e81',
+                background: '#FFFFFF',
+                surface: '#F5F5F5',
+                border: '#E0E0E0',
+                text: {
+                    primary: '#000000',
+                    secondary: '#666666',
+                    disabled: '#999999',
                 },
-                success: {
-                    DEFAULT: '#10b981',
-                    50: '#ecfdf5',
-                    100: '#d1fae5',
-                    200: '#a7f3d0',
-                    300: '#6ee7b7',
-                    400: '#34d399',
-                    500: '#10b981',
-                    600: '#059669',
-                    700: '#047857',
-                    800: '#065f46',
-                    900: '#064e3b',
+                status: {
+                    active: '#000000',
+                    expired: '#666666',
+                    frozen: '#999999',
                 },
+                accent: '#000000',
+                hover: '#F0F0F0',
             },
-            animation: {
-                'pulse-success': 'pulse-success 0.6s ease-in-out',
-                'shake': 'shake 0.5s ease-in-out',
+            borderRadius: {
+                'none': '0px',
+                'sm': '2px',
+                'md': '4px',
+                'lg': '8px',
             },
-            keyframes: {
-                'pulse-success': {
-                    '0%, 100%': { transform: 'scale(1)', opacity: '1' },
-                    '50%': { transform: 'scale(1.05)', opacity: '0.8' },
-                },
-                'shake': {
-                    '0%, 100%': { transform: 'translateX(0)' },
-                    '10%, 30%, 50%, 70%, 90%': { transform: 'translateX(-4px)' },
-                    '20%, 40%, 60%, 80%': { transform: 'translateX(4px)' },
-                },
+            boxShadow: {
+                'sm': '0 1px 2px rgba(0, 0, 0, 0.05)',
+                'md': '0 2px 4px rgba(0, 0, 0, 0.1)',
             },
         },
     },

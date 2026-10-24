@@ -1,21 +1,26 @@
-import { MemberStatus } from '@/types';
-import { cn } from '@/utils/cn';
-
 interface StatusBadgeProps {
-    status: MemberStatus;
-    className?: string;
+    status: 'ACTIVE' | 'EXPIRED' | 'FROZEN';
 }
 
-export default function StatusBadge({ status, className }: StatusBadgeProps) {
-    const variants: Record<MemberStatus, string> = {
-        ACTIVE: 'badge-active',
-        EXPIRED: 'badge-expired',
-        FROZEN: 'badge-frozen',
+const StatusBadge = ({ status }: StatusBadgeProps) => {
+    const getStatusClasses = () => {
+        switch (status) {
+            case 'ACTIVE':
+                return 'bg-black text-white';
+            case 'EXPIRED':
+                return 'bg-gray-400 text-white';
+            case 'FROZEN':
+                return 'bg-gray-600 text-white';
+            default:
+                return 'bg-gray-300 text-black';
+        }
     };
 
     return (
-        <span className={cn('badge', variants[status], className)}>
+        <span className={`inline-block px-3 py-1 text-xs font-medium uppercase tracking-wide ${getStatusClasses()}`}>
             {status}
         </span>
     );
-}
+};
+
+export default StatusBadge;
