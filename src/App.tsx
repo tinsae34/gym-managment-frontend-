@@ -9,12 +9,13 @@ function App() {
         <Router>
             <Toaster
                 position="top-right"
-                theme="dark"
+                theme="light"
                 toastOptions={{
                     style: {
-                        background: '#1e293b',
-                        color: '#f8fafc',
-                        border: '1px solid #334155',
+                        background: '#ffffff',
+                        color: '#000000',
+                        border: '2px solid #000000',
+                        borderRadius: '0px',
                     },
                 }}
             />

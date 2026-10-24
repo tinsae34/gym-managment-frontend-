@@ -43,12 +43,12 @@ export default function NewMemberModal({ onClose, onSuccess }: NewMemberModalPro
 
     return (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-            <div className="card p-6 max-w-md w-full">
+            <div className="card-strong p-6 max-w-md w-full bg-white">
                 <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-2xl font-bold text-slate-50">New Member Registration</h3>
+                    <h3 className="text-2xl font-bold text-black">New Member Registration</h3>
                     <button
                         onClick={onClose}
-                        className="text-slate-400 hover:text-slate-50 transition-colors"
+                        className="text-gray-500 hover:text-black transition-colors"
                     >
                         <X className="h-6 w-6" />
                     </button>
@@ -56,7 +56,7 @@ export default function NewMemberModal({ onClose, onSuccess }: NewMemberModalPro
 
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
-                        <label className="block text-sm font-medium text-slate-300 mb-2">
+                        <label className="block text-sm font-medium text-black mb-2">
                             <div className="flex items-center space-x-2">
                                 <User className="h-4 w-4" />
                                 <span>Full Name *</span>
@@ -74,7 +74,7 @@ export default function NewMemberModal({ onClose, onSuccess }: NewMemberModalPro
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-slate-300 mb-2">
+                        <label className="block text-sm font-medium text-black mb-2">
                             <div className="flex items-center space-x-2">
                                 <Phone className="h-4 w-4" />
                                 <span>Phone Number *</span>

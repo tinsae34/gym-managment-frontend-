@@ -82,7 +82,7 @@ export default function MembersScreen() {
         <div className="space-y-6">
             {/* Header */}
             <div className="flex items-center justify-between">
-                <h2 className="text-3xl font-bold text-slate-50">Member Management</h2>
+                <h2 className="text-3xl font-bold text-black">Member Management</h2>
                 <button
                     onClick={() => setShowNewMemberModal(true)}
                     className="btn-primary flex items-center space-x-2"
@@ -101,9 +101,9 @@ export default function MembersScreen() {
                             <button
                                 key={tab.value}
                                 onClick={() => setActiveFilter(tab.value)}
-                                className={`px-4 py-2 rounded-lg font-medium transition-colors ${activeFilter === tab.value
-                                    ? 'bg-primary-600 text-white'
-                                    : 'bg-slate-700 text-slate-300 hover:bg-slate-600'
+                                className={`px-4 py-2 text-sm font-medium transition-colors ${activeFilter === tab.value
+                                    ? 'bg-black text-white border border-black'
+                                    : 'bg-white text-black border border-gray-300 hover:bg-gray-100'
                                     }`}
                             >
                                 {tab.label}
@@ -113,7 +113,7 @@ export default function MembersScreen() {
 
                     {/* Search Bar */}
                     <div className="relative w-full lg:w-80">
-                        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-slate-400" />
+                        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
                         <input
                             type="text"
                             value={searchQuery}
@@ -129,64 +129,58 @@ export default function MembersScreen() {
             <div className="card overflow-hidden">
                 {loading ? (
                     <div className="p-12 text-center">
-                        <div className="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary-500"></div>
-                        <p className="text-slate-400 mt-4">Loading members...</p>
+                        <div className="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-black"></div>
+                        <p className="text-gray-500 mt-4">Loading members...</p>
                     </div>
                 ) : filteredMembers.length === 0 ? (
                     <div className="p-12 text-center">
-                        <p className="text-slate-400">No members found</p>
+                        <p className="text-gray-500">No members found</p>
                     </div>
                 ) : (
                     <div className="overflow-x-auto">
                         <table className="w-full">
-                            <thead className="bg-slate-700/50">
+                            <thead className="bg-gray-100 border-b border-gray-200">
                                 <tr>
-                                    <th className="px-6 py-4 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">
+                                    <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
                                         Member
                                     </th>
-                                    <th className="px-6 py-4 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">
+                                    <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
                                         Phone
                                     </th>
-                                    <th className="px-6 py-4 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">
+                                    <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
                                         Status
                                     </th>
-                                    <th className="px-6 py-4 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">
+                                    <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
                                         Start Date
                                     </th>
-                                    <th className="px-6 py-4 text-left text-xs font-semibold text-slate-300 uppercase tracking-wider">
+                                    <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
                                         Expiry Date
                                     </th>
-                                    <th className="px-6 py-4 text-right text-xs font-semibold text-slate-300 uppercase tracking-wider">
+                                    <th className="px-6 py-4 text-right text-xs font-semibold text-gray-700 uppercase tracking-wider">
                                         Actions
                                     </th>
                                 </tr>
                             </thead>
-                            <tbody className="divide-y divide-slate-700">
+                            <tbody className="divide-y divide-gray-200">
                                 {filteredMembers.map((member) => (
                                     <tr
                                         key={member.id}
-                                        className="hover:bg-slate-700/30 transition-colors"
+                                        className="hover:bg-gray-50 transition-colors"
                                     >
                                         <td className="px-6 py-4 whitespace-nowrap">
-                                            <div className="font-medium text-slate-50">{member.fullName}</div>
+                                            <div className="font-medium text-black">{member.fullName}</div>
                                         </td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-slate-300">
+                                        <td className="px-6 py-4 whitespace-nowrap text-gray-700">
                                             {member.phoneNumber}
                                         </td>
                                         <td className="px-6 py-4 whitespace-nowrap">
                                             <StatusBadge status={member.status} />
                                         </td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-slate-300">
-                                            {formatDate(member.startDate)}
+                                        <td className="px-6 py-4 whitespace-nowrap text-gray-700">
+                                            {formatDate(member.membershipStartDate)}
                                         </td>
                                         <td className="px-6 py-4 whitespace-nowrap">
-                                            <span
-                                                className={
-                                                    member.status === 'EXPIRED'
-                                                        ? 'text-red-400'
-                                                        : 'text-slate-300'
-                                                }
-                                            >
+                                            <span className="text-gray-700">
                                                 {formatDate(member.membershipExpiryDate)}
                                             </span>
                                         </td>

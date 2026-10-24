@@ -38,12 +38,12 @@ export default function QRCodeModal({ member, onClose }: QRCodeModalProps) {
 
     return (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-            <div className="card p-6 max-w-md w-full">
+            <div className="card-strong p-6 max-w-md w-full bg-white">
                 <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-2xl font-bold text-slate-50">Member QR Code</h3>
+                    <h3 className="text-2xl font-bold text-black">Member QR Code</h3>
                     <button
                         onClick={onClose}
-                        className="text-slate-400 hover:text-slate-50 transition-colors"
+                        className="text-gray-500 hover:text-black transition-colors"
                     >
                         <X className="h-6 w-6" />
                     </button>
@@ -51,12 +51,12 @@ export default function QRCodeModal({ member, onClose }: QRCodeModalProps) {
 
                 {/* Member Info */}
                 <div className="text-center mb-6">
-                    <p className="text-2xl font-bold text-slate-50 mb-1">{member.fullName}</p>
-                    <p className="text-slate-300">{member.phoneNumber}</p>
+                    <p className="text-2xl font-bold text-black mb-1">{member.fullName}</p>
+                    <p className="text-gray-600">{member.phoneNumber}</p>
                 </div>
 
                 {/* QR Code */}
-                <div className="bg-white p-6 rounded-xl flex items-center justify-center mb-6">
+                <div className="bg-white p-6 border-2 border-black flex items-center justify-center mb-6">
                     <QRCodeSVG
                         id="member-qr-code"
                         value={member.qrCodeToken}
@@ -67,7 +67,7 @@ export default function QRCodeModal({ member, onClose }: QRCodeModalProps) {
                 </div>
 
                 <div className="text-center mb-6">
-                    <p className="text-sm text-slate-400">Token: {member.qrCodeToken}</p>
+                    <p className="text-sm font-mono text-gray-500">Token: {member.qrCodeToken}</p>
                 </div>
 
                 {/* Actions */}

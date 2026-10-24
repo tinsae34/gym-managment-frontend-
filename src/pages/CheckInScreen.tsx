@@ -73,10 +73,10 @@ export default function CheckInScreen() {
     return (
         <div className="space-y-6">
             {/* Search Bar */}
-            <div className="card p-6">
-                <h2 className="text-2xl font-bold text-slate-50 mb-4">Quick Check-In</h2>
+            <div className="card-strong p-6 bg-white">
+                <h2 className="text-2xl font-bold text-black mb-4">Quick Check-In</h2>
                 <div className="relative">
-                    <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-slate-400" />
+                    <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
                     <input
                         ref={inputRef}
                         type="text"
@@ -89,8 +89,8 @@ export default function CheckInScreen() {
                         autoFocus
                     />
                 </div>
-                <p className="text-sm text-slate-400 mt-2">
-                    🔍 Use barcode scanner or type manually, press Enter to search
+                <p className="text-sm text-gray-500 mt-2">
+                    Use barcode scanner or type manually, press Enter to search
                 </p>
             </div>
 
@@ -104,33 +104,33 @@ export default function CheckInScreen() {
             )}
 
             {/* Recent Check-Ins */}
-            <div className="card p-6">
+            <div className="card-strong p-6 bg-white">
                 <div className="flex items-center space-x-2 mb-4">
-                    <Clock className="h-5 w-5 text-slate-400" />
-                    <h3 className="text-xl font-bold text-slate-50">Today's Check-Ins</h3>
+                    <Clock className="h-5 w-5 text-black" />
+                    <h3 className="text-xl font-bold text-black">Today's Check-Ins</h3>
                 </div>
 
                 {recentCheckIns.length === 0 ? (
-                    <p className="text-slate-400 text-center py-8">No check-ins yet today</p>
+                    <p className="text-gray-500 text-center py-8">No check-ins yet today</p>
                 ) : (
-                    <div className="space-y-2 max-h-96 overflow-y-auto scrollbar-thin">
+                    <div className="space-y-2 max-h-96 overflow-y-auto">
                         {recentCheckIns.map((checkIn) => (
                             <div
                                 key={checkIn.id}
-                                className="flex items-center justify-between p-4 bg-slate-700/30 rounded-lg hover:bg-slate-700/50 transition-colors"
+                                className="flex items-center justify-between p-4 border border-gray-200 bg-white hover:bg-gray-50 transition-colors"
                             >
                                 <div className="flex items-center space-x-3">
-                                    <CheckCircle2 className="h-5 w-5 text-success-400" />
+                                    <CheckCircle2 className="h-5 w-5 text-black" />
                                     <div>
-                                        <p className="font-medium text-slate-50">{checkIn.member.fullName}</p>
-                                        <p className="text-sm text-slate-400">{checkIn.member.phoneNumber}</p>
+                                        <p className="font-medium text-black">{checkIn.member.fullName}</p>
+                                        <p className="text-sm text-gray-500">{checkIn.member.phoneNumber}</p>
                                     </div>
                                 </div>
                                 <div className="text-right">
-                                    <p className="text-sm font-medium text-slate-300">
+                                    <p className="text-sm font-medium text-black">
                                         {formatTime(checkIn.checkInTime)}
                                     </p>
-                                    <p className="text-xs text-slate-400">Today</p>
+                                    <p className="text-xs text-gray-400">Today</p>
                                 </div>
                             </div>
                         ))}
